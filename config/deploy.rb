@@ -14,6 +14,7 @@ set :domain, 'ec2-34-250-78-248.eu-west-1.compute.amazonaws.com'
 set :deploy_to, '/var/app/alderhilldigital.co.uk'
 set :repository, 'https://github.com/alderhilldigital/alderhilldigital.co.uk.git'
 set :branch, 'master'
+set :rails_env, 'production'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
