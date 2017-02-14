@@ -18,11 +18,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--<link rel="stylesheet" href="/assets/bootstrap.min.css">-->
 		<%= stylesheet_link_tag "bootstrap.min" %>
 		<%= stylesheet_link_tag "font-awesome.min.css" %>
-		<%= stylesheet_link_tag "bootstrap-theme.css" media="screen" %>
+		<%= stylesheet_link_tag "bootstrap-theme.css", :media => "screen" %>
 		<!--<link rel="stylesheet" href="/assets/style.css">-->
 
 		<%= stylesheet_link_tag "style" %>
-	  <%= stylesheet_link_tag 'camera.css' :media => 'all' :id => 'camera-css' %>
+	  <%= stylesheet_link_tag 'camera.css', :media => 'all', :id => 'camera-css' %>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="/assets/html5shiv.js"></script>
@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 					<a class="navbar-brand" href="/" id='logo'>
-						<!--<%= image_tag "logo.png" :alt => "Alderhill Digital Logo" %>-->
+						<!--<%= image_tag "logo.png", :alt => "Alderhill Digital Logo" %>-->
 							<span id='alderhill'>Alderhill</span>
 							|
 							<span id='digital'>Digital</span>
