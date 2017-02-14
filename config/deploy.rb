@@ -10,7 +10,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'alderhilldigital.co.uk'
-set :domain, 'ec2-34-249-55-163.eu-west-1.compute.amazonaws.com'
+set :domain, 'ec2-34-249-65-184.eu-west-1.compute.amazonaws.com'
 set :deploy_to, '/var/app/alderhilldigital.co.uk'
 set :repository, 'https://github.com/alderhilldigital/alderhilldigital.co.uk.git'
 set :branch, 'master'
@@ -20,7 +20,7 @@ set :rails_env, 'production'
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
-set :user, 'ubuntu'                # Optional
+set :user, 'ec2-user'                # Optional
 set :identity_file, '/Users/alanstirling/Desktop/web1.pem'
 set :forward_agent, true     # SSH forward_agent.
 set :port, '22'
