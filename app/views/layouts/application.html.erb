@@ -1,0 +1,172 @@
+<!--
+Author: WebThemez
+Author URL: http://webthemez.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="alderhill digital training">
+		<meta name="author" content="webThemez.com">
+		<title>Alderhill Digital Training</title>
+		<link rel="favicon" href="/assets/favicon.png">
+		<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+		<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700">
+		<link rel="stylesheet" href="/assets/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/font-awesome.min.css">
+		<link rel="stylesheet" href="/assets/bootstrap-theme.css" media="screen">
+		<link rel="stylesheet" href="/assets/style.css">
+	  <link rel='stylesheet' id='camera-css'  href='assets/camera.css' type='text/css' media='all'>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="/assets/html5shiv.js"></script>
+		<script src="/assets/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+					<a class="navbar-brand" href="/" id='logo'>
+						<!--<img src="/assets/logo.png" alt="Alderhill Digital Logo">-->
+							<span id='alderhill'>Alderhill</span>
+							|
+							<span id='digital'>Digital</span>
+					</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right mainNav">
+						<li class="<%= 'active' if params[:controller] == 'home' and params[:action] == 'index' %>"><a href="/">Home</a></li>
+						<li class="<%= 'active' if params[:controller] == 'home' and params[:action] == 'about' %>"><a href="/about">About</a></li>
+						<li class="<%= 'active' if params[:controller] == 'courses' %>"><a href="courses">Courses</a></li>
+						<li class="<%= 'active' if params[:controller] == 'home' and params[:action] == 'contact' %>"><a href="/contact">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+    <%= yield %>
+
+    <footer id="footer">
+    			<div class="container">
+    				<div class="row">
+    					<div class="footerbottom">
+    						<div class="col-md-3 col-sm-6">
+    							<div class="footerwidget">
+    								<h4>Categories</h4>
+    								<div class="menu-course">
+    									<ul class="menu">
+    										<li><a href="courses">Qualifications</a></li>
+    										<li><a href="courses">Courses</a></li>
+    										<li><a href="#">Technologies</a></li>
+    									</ul>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="col-md-3 col-sm-6">
+    							<div class="footerwidget">
+    								<h4>Information</h4>
+    								<div class="menu-course">
+    									<ul class="menu">
+    										<li>Centre Policies</li>
+    										<li>Application Process</li>
+    									</ul>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="col-md-3 col-sm-6">
+    							<div class="footerwidget">
+    								<h4></h4>
+    								<div class="menu-course">
+    									<ul class="menu">
+
+    									</ul>
+    								</div>
+    							</div>
+    						</div>
+    						<div class="col-md-3 col-sm-6">
+    	          	<div class="footerwidget">
+    								<h4>Contact</h4>
+    								<p>If you would like to find out more or you have any questions, please contact us.</p>
+    								<div class="contact-info">
+    									<i class="fa fa-map-marker"></i> 1 Hillman's Court, Coleraine, BT52 2DF<br>
+    									<i class="fa fa-phone"></i>02870 400 955 <br>
+    									<i class="fa fa-envelope-o"></i> info@alderhilldigital.co.uk
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="social text-center">
+    					<a href="https://twitter.com/alderhilldigi"><i class="fa fa-twitter"></i></a>
+    					<a href="https://www.facebook.com/alderhilldigi"><i class="fa fa-facebook"></i></a>
+    					<!--<a href="#"><i class="fa fa-dribbble"></i></a>
+    					<a href="#"><i class="fa fa-flickr"></i></a>
+    					<a href="#"><i class="fa fa-github"></i></a>-->
+    				</div>
+    				<div class="clear"></div>
+    			</div>
+    			<div class="footer2">
+    				<div class="container">
+    					<div class="row">
+
+    						<div class="col-md-6 panel">
+    							<div class="panel-body">
+    								<p class="simplenav">
+    									<a href="index">Home</a> |
+    									<a href="about">About</a> |
+    									<a href="courses">Courses</a> |
+    									<a href="contact">Contact</a>
+    								</p>
+    							</div>
+    						</div>
+
+    						<div class="col-md-6 panel">
+    							<div class="panel-body">
+    								<p class="text-right">
+    									Copyright &copy; 2014. Template by <a href="http://webthemez.com/" rel="develop">WebThemez.com</a>
+    								</p>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</footer>
+
+    		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    		<script src="/assets/modernizr-latest.js"></script>
+    		<script type='text/javascript' src='assets/jquery.min.js'></script>
+    	  <script type='text/javascript' src='assets/fancybox/jquery.fancybox.pack.js'></script>
+
+    	  <script type='text/javascript' src='assets/jquery.mobile.customized.min.js'></script>
+    	  <script type='text/javascript' src='assets/jquery.easing.1.3.js'></script>
+    	  <script type='text/javascript' src='assets/camera.min.js'></script>
+    	  <script src="/assets/bootstrap.min.js"></script>
+    		<script src="/assets/custom.js"></script>
+    	  <script>
+    			jQuery(function(){
+
+    				jQuery('#camera_wrap_4').camera({
+    	                transPeriod: 500,
+    	                time: 3000,
+    					height: '600',
+    					loader: 'false',
+    					pagination: true,
+    					thumbnails: false,
+    					hover: false,
+    	                playPause: false,
+    	                navigation: false,
+    					opacityOnGrid: false,
+    					imagePath: 'assets/'
+    				});
+
+    			});
+
+    		</script>
+
+    	</body>
+    </html>
