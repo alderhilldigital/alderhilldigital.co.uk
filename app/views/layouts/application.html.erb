@@ -17,11 +17,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700">
 		<!--<link rel="stylesheet" href="/assets/bootstrap.min.css">-->
 		<%= stylesheet_link_tag "bootstrap.min" %>
-		<%= stylesheet_link_tag "font-awesome.min.css" %>
 		<%= stylesheet_link_tag "bootstrap-theme.css", :media => "screen" %>
-		<!--<link rel="stylesheet" href="/assets/style.css">-->
-
-		<%= stylesheet_link_tag "style" %>
+		<%= stylesheet_link_tag "application" %>
 	  <%= stylesheet_link_tag 'camera.css', :media => 'all', :id => 'camera-css' %>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -105,7 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     					</div>
     				</div>
     				<div class="social text-center">
-    					<a href="https://twitter.com/alderhilldigi"><i class="fa fa-twitter"></i></a>
+    					<a href="https://twitter.com/alderhilldigi"><%= fa_icon "twitter" %></a>
     					<a href="https://www.facebook.com/alderhilldigi"><i class="fa fa-facebook"></i></a>
     					<!--<a href="#"><i class="fa fa-dribbble"></i></a>
     					<a href="#"><i class="fa fa-flickr"></i></a>

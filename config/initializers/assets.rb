@@ -12,8 +12,6 @@ Rails.application.config.assets.precompile += %w(
 bootstrap-theme.css
 bootstrap.min.css
 camera.css
-font-awesome.min.css
-style.css
 fancybox/*
 bootstrap.min.js
 camera.min.js
