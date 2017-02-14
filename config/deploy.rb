@@ -20,7 +20,7 @@ set :rails_env, 'production'
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
-set :user, 'ec2-user'                # Optional
+set :user, 'ubuntu'                # Optional
 set :identity_file, '/Users/alanstirling/Desktop/web1.pem'
 set :forward_agent, true     # SSH forward_agent.
 set :port, '22'
