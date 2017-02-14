@@ -28,7 +28,6 @@ gem 'modernizr-rails'
 gem 'mina'
 #gem 'rails_12factor'
 gem 'unicorn'
-gem 'mina-unicorn', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
