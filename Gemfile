@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "font-awesome-rails"
 gem 'modernizr-rails'
-#gem 'mina'
+gem 'mina'
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
