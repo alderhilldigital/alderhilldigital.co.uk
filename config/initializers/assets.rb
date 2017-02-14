@@ -14,4 +14,12 @@ bootstrap.min.css
 camera.css
 font-awesome.min.css
 style.css
+fancybox/*
+bootstrap.min.js
+camera.min.js
+custom.js
+jquery.easing.1.3.js
+jquery.min.js
+jquery.mobile.customized.min.js
+modernizr-latest.js
 )
