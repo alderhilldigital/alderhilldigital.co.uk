@@ -46,44 +46,6 @@ task :setup do
   # command %{rbenv install 2.3.0}
 end
 
-set :app_path, "/var/app/#{application_name}/current"
-set :shared_path, "/var/app/#{application_name}/shared"
-
-namespace :unicorn do
-  set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
-  set :start_unicorn, %{
-    cd #{app_path}
-    bundle exec unicorn -c #{app_path}/config/unicorn.rb -E #{rails_env} -D
-  }
-
-  #                                                                    Start task
-# ------------------------------------------------------------------------------
-  desc "Start unicorn"
-  task :start => :environment do
-    queue 'echo "-----> Start Unicorn"'
-    queue! start_unicorn
-  end
-
-#                                                                     Stop task
-# ------------------------------------------------------------------------------
-  desc "Stop unicorn"
-  task :stop do
-    queue 'echo "-----> Stop Unicorn"'
-    queue! %{
-      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
-      echo >&2 "Not running"
-    }
-  end
-
-#                                                                  Restart task
-# ------------------------------------------------------------------------------
-  desc "Restart unicorn using 'upgrade'"
-  task :restart => :environment do
-    invoke 'unicorn:stop'
-    invoke 'unicorn:start'
-  end
-end
-
 desc "Deploys the current version to the server."
 task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
@@ -97,7 +59,6 @@ task :deploy do
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
-    invoke :'unicorn:restart'
 
     on :launch do
       in_path(fetch(:current_path)) do
@@ -105,11 +66,51 @@ task :deploy do
         command %{touch tmp/restart.txt}
       end
     end
+
+    #invoke :'unicorn:restart'
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
-  # run(:local){ say 'done' }
+  #run(:local){ say 'done' }
 end
+
+namespace :unicorn do
+  set :app_path, "/var/app/#{fetch(:application_name)}/current"
+  set :shared_path, "/var/app/#{fetch(:application_name)}/shared"
+  set :unicorn_pid, "#{fetch(:shared_path)}/pids/unicorn.pid"
+
+  #                                                                    Start task
+# ------------------------------------------------------------------------------
+  desc "Start unicorn"
+  task :start => :environment do
+    command 'echo "-----> Start Unicorn"'
+    command %{
+      cd #{fetch(:app_path)}
+      bundle exec unicorn -c config/unicorn.rb -E #{fetch(:rails_env)} -D
+    }
+  end
+
+#                                                                     Stop task
+# ------------------------------------------------------------------------------
+  desc "Stop unicorn"
+  task :stop do
+    command 'echo "-----> Stop Unicorn"'
+    command %{
+      test -s "#{fetch(:unicorn_pid)}" && kill -QUIT `cat "#{fetch(:unicorn_pid)}"` && echo "Stop Ok"
+      echo >&2 "Not running"
+    }
+  end
+
+#                                                                  Restart task
+# ------------------------------------------------------------------------------
+  desc "Restart unicorn using 'upgrade'"
+  task :restart => :environment do
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
+  end
+end
+
+
 
 # For help in making your deploy script, see the Mina documentation:
 #
