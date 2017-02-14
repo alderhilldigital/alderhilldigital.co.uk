@@ -46,25 +46,17 @@ task :setup do
   # command %{rbenv install 2.3.0}
 end
 
-amespace :unicorn do
+namespace :unicorn do
   set :unicorn_pid, "/home/unicorn/pids/unicorn.pid"
-  set :start_unicorn, %{
-    service unicorn restart
-  }
 
   desc "Start unicorn"
   task :start => :environment do
-    queue 'echo "-----> Start Unicorn"'
-    queue! start_unicorn
+    command %{service unicorn_alderhilldigital_co_uk start}
   end
 
   desc "Stop unicorn"
   task :stop do
-    queue 'echo "-----> Stop Unicorn"'
-    queue! %{
-      test -s "#{unicorn_pid}" && kill -QUIT `cat "#{unicorn_pid}"` && echo "Stop Ok" && exit 0
-      echo >&2 "Not running"
-    }
+    command %{service unicorn_alderhilldigital_co_uk stop}
   end
 
   desc "Restart unicorn using 'upgrade'"
