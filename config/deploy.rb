@@ -58,7 +58,10 @@ task :deploy do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
+    invoke :'unicorn:stop'
     invoke :'deploy:cleanup'
+    invoke :'unicorn:start'
+
 
     on :launch do
       in_path(fetch(:current_path)) do

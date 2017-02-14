@@ -75,6 +75,8 @@ GEM
     mina (1.0.6)
       open4 (~> 1.3.4)
       rake
+    mina-unicorn (1.0.1)
+      mina (~> 1.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     modernizr-rails (2.7.1)
@@ -161,6 +163,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mina
+  mina-unicorn
   modernizr-rails
   pg (~> 0.15)
   rails (= 4.2.8.rc1)
