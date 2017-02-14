@@ -21,5 +21,4 @@ custom.js
 jquery.easing.1.3.js
 jquery.min.js
 jquery.mobile.customized.min.js
-modernizr-latest.js
 )
