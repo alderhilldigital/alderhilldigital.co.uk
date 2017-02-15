@@ -83,4 +83,4 @@ production:
   <<: *default
   database: alderhill
   username: alderhill
-  password: gBjoCsUTGN2E
+  password: <%= ENV['DATABASE_PASWORD'] %>
