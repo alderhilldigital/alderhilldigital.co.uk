@@ -1,6 +1,26 @@
+
 <div class='container'>
+
   <%= form_tag do %>
-    <%= text_field_tag "name" %>
-    <%= submit_tag "send"%>
+    <ul class="form-style-1">
+      <p>
+        Please send us a message. We want to hear your feedback and answer any questions you might have.
+      </p>
+      <li>
+        <label for='name'>Name:</label>
+        <%= text_field_tag "name" %>
+      </li>
+      <li>
+        <label for='name'>Email:</label>
+        <%= text_field_tag "email" %>
+      </li>
+      <li>
+        <label for='name'>Message</label>
+        <%= text_area_tag "message" %>
+      </li>
+      <li>
+        <%= submit_tag "send"%>
+      </li>
+    </ul>
   <% end %>
 </div>
