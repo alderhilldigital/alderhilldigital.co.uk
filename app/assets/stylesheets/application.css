@@ -1026,6 +1026,13 @@
  	font-family: 'Ubuntu', sans-serif;
  	font-weight:400;
  }
+
+@media(max-width: 480px) {
+   #logo{
+   	font-size:2.5em;
+   }
+ }
+
  #alderhill{
   color: #0086C0;
   font-size:0.8em;
