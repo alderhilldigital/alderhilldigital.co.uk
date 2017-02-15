@@ -1149,6 +1149,14 @@
  }
 
 
+.schedule td, .schedule th{
+  padding:8px;
+  border: solid 1px gray;
+}
+.schedule th{
+  vertical-align: top;
+}
+
 
  @media (min-width:320px) and (max-width: 480px) {
  	.video-list-thumbs .glyphicon-play-circle{
