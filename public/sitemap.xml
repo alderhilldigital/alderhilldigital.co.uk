@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.alderhilldigital.co.uk/</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/about</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/courses</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/contact</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/courses/web-design-and-development</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/courses/building-a-website</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.alderhilldigital.co.uk/courses/getting-started-with-linux</loc>
+  <lastmod>2017-02-20T15:00:05+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
