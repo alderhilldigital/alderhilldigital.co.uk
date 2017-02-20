@@ -146,26 +146,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	  <%= javascript_include_tag 'camera.min' %>
     	  <%= javascript_include_tag 'bootstrap.min' %>
     		<%= javascript_include_tag 'custom' %>
-    	  <script>
-    			jQuery(function(){
+				<script>
+				  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    				jQuery('#camera_wrap_4').camera({
-    	                transPeriod: 500,
-    	                time: 3000,
-    					height: '600',
-    					loader: 'false',
-    					pagination: true,
-    					thumbnails: false,
-    					hover: false,
-    	                playPause: false,
-    	                navigation: false,
-    					opacityOnGrid: false,
-    					imagePath: 'assets/'
-    				});
+				  ga('create', 'UA-92293454-1', 'auto');
+				  ga('send', 'pageview');
 
-    			});
-
-    		</script>
-
+				</script>
+				<%= yield :footer %>
     	</body>
     </html>

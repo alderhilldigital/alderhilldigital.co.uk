@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   get 'courses/getting-started-with-linux' => 'courses#getting_started_with_linux'
   get 'courses/web-design-and-development' => 'courses#web_design_and_development'
   post 'contact' => 'home#process_contact'
+  get 'certificates' => 'certificates#index'
+  post 'certificates' => 'certificates#create'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
