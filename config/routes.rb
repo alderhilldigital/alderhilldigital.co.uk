@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'courses/building-a-website' => 'courses#building_a_website'
   get 'courses/getting-started-with-linux' => 'courses#getting_started_with_linux'
   get 'courses/web-design-and-development' => 'courses#web_design_and_development'
+  get 'courses/digital-marketing' => 'courses#digital-marketing'
   post 'contact' => 'home#process_contact'
   get 'certificates' => 'certificates#index'
   post 'certificates' => 'certificates#create'
