@@ -26,7 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "font-awesome-rails"
 gem 'modernizr-rails'
 gem 'mina'
-gem 'mina-dotenv'
 #gem 'rails_12factor'
 gem 'unicorn'
 
