@@ -1,0 +1,30 @@
+<% content_for :meta_description do %>
+Courses - <%= @course.name %>
+<% end %>
+<div class="container">
+  <a href="/courses"> << Back to courses </a>
+  <div class="row">
+    <div class="col-md-8">
+      <h2><%= @course.name %></h2>
+      <% if @course.description and !@course.description.blank? %>
+        <p>
+          <%= @course.description %>
+        </p>
+      <% end %>
+      <% if @course.application_process and !@course.application_process.blank? %>
+        <h2>Application</h2>
+        <p><%= @course.application_process %></p>
+      <% end %>
+      <% if @course.progression and !@course.progression.blank? %>
+        <h2>Progression</h2>
+        <p><%= @course.progression %></p>
+      <% end %>
+      <% if @course.course_content and !@course.course_content.blank? %>
+        <h2>Course Content</h2>
+        <p><%= @course.course_content.html_safe %></p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

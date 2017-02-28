@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  qualification: false
+  level: MyString
+  part_time: false
+  full_time: false
+  application_process: MyText
+  progression: MyText
+  course_content: MyText
+  external_link: MyString
+  cost: 1.5
+  duration: MyString
+  qualification_no: MyString
+
+two:
+  title: MyString
+  description: MyText
+  qualification: false
+  level: MyString
+  part_time: false
+  full_time: false
+  application_process: MyText
+  progression: MyText
+  course_content: MyText
+  external_link: MyString
+  cost: 1.5
+  duration: MyString
+  qualification_no: MyString

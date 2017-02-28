@@ -12,14 +12,24 @@ Rails.application.routes.draw do
   # Example of regular route:
   get 'about' => 'home#about'
   get 'contact' => 'home#contact'
-  get 'courses' => 'courses#index'
-  get 'courses/building-a-website' => 'courses#building_a_website'
-  get 'courses/getting-started-with-linux' => 'courses#getting_started_with_linux'
-  get 'courses/web-design-and-development' => 'courses#web_design_and_development'
-  get 'courses/digital-marketing' => 'courses#digital-marketing'
+  #get 'courses' => 'courses#index'
+  #get 'courses/building-a-website' => 'courses#building_a_website'
+  #get 'courses/getting-started-with-linux' => 'courses#getting_started_with_linux'
+  #get 'courses/web-design-and-development' => 'courses#web_design_and_development'
+  #get 'courses/digital-marketing' => 'courses#digital-marketing'
   post 'contact' => 'home#process_contact'
   get 'certificates' => 'certificates#index'
   post 'certificates' => 'certificates#create'
+
+  get 'administration' => 'admin#index'
+  post 'administration' => 'admin/courses#index'
+  get 'administration/courses' => 'admin/courses#index', :as => :admin_courses
+
+  resources :courses
+
+  namespace :administration, :as => "admin", :module => 'admin' do
+    resources :courses
+  end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

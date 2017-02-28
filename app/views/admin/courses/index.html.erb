@@ -1,0 +1,19 @@
+<% if @courses.any? %>
+  <section class="news-box top-margin">
+    <div class="container">
+      <h2> Courses </h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th></th>
+        </tr>
+        <% @courses.each do |course| %>
+          <tr>
+            <td><%= course.name %></td>
+            <td><%= link_to "edit", edit_admin_course_path(course) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </section>
+<% end %>
