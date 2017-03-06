@@ -8,16 +8,16 @@ Courses - <%= @course.name %>
       <h2><%= @course.name %></h2>
       <% if @course.description and !@course.description.blank? %>
         <p>
-          <%= @course.description %>
+          <%= @course.description.html_safe %>
         </p>
       <% end %>
       <% if @course.application_process and !@course.application_process.blank? %>
         <h2>Application</h2>
-        <p><%= @course.application_process %></p>
+        <p><%= @course.application_process.html_safe %></p>
       <% end %>
       <% if @course.progression and !@course.progression.blank? %>
         <h2>Progression</h2>
-        <p><%= @course.progression %></p>
+        <p><%= @course.progression.html_safe %></p>
       <% end %>
       <% if @course.course_content and !@course.course_content.blank? %>
         <h2>Course Content</h2>
