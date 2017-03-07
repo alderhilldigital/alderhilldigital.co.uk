@@ -101,7 +101,7 @@
  #head {
  	/*background: #181015 url( ../images/bg_header.jpg) no-repeat;*/
  	background-size: cover;
- 	height: 600px;
+ 	height: 500px;
  	text-align: center;
  	color: white;
  	font-weight: 300;
@@ -1156,6 +1156,22 @@
 }
 .schedule th{
   vertical-align: top;
+}
+
+.tech_icons{
+  padding: 10px 20%;
+  background-color: #0086C0;
+  color:white;
+}
+
+.tech_icons .col-md-2{
+  text-align:center;
+}
+
+@media (max-width: 600px){
+  .tech_icons{
+    font-size:0.5em;
+  }
 }
 
 
