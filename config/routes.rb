@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   post 'administration' => 'admin/courses#index'
   get 'administration/courses' => 'admin/courses#index', :as => :admin_courses
 
-  resources :courses
+  resources :courses do
+    member do
+      post 'interest'
+    end
+  end
 
   namespace :administration, :as => "admin", :module => 'admin' do
     resources :courses

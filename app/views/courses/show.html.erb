@@ -4,7 +4,7 @@ Courses - <%= @course.name %>
 <div class="container">
   <a href="/courses"> << Back to courses </a>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-8">
       <h2><%= @course.name %></h2>
       <% if @course.description and !@course.description.blank? %>
         <p>
@@ -24,7 +24,23 @@ Courses - <%= @course.name %>
         <p><%= @course.course_content.html_safe %></p>
       <% end %>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
+      <br />
+      <h4> Interested? </h4>
+      <p>
+        If you are interested in this course and would like more information or to
+        be kept up-to-date about when this course is running, please submit your email address.
+      </p>
+      <%= form_tag interest_course_path(@course) do %>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Email" name='email'>
+          <span class="input-group-btn">
+            <div class="btn-group">
+              <button class="btn btn-default" type="submit">Submit</button>
+            </div>
+          </span>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

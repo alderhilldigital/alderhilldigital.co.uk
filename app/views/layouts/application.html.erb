@@ -48,7 +48,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 		</div>
-
+		<div class='container'>
+			<% flash.each do |key, value| %>
+			  <%= content_tag :div, value, class: "alert alert-#{key}" %>
+			<% end %>
+		</div>
     <%= yield %>
 
     <footer id="footer">
