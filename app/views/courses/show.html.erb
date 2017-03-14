@@ -1,5 +1,8 @@
+<% content_for :meta_title do %>
+ : Courses - <%= @course.name %>
+<% end %>
 <% content_for :meta_description do %>
-Courses - <%= @course.name %>
+  <%= @course.name + ' - ' + @course.description %>
 <% end %>
 <div class="container">
   <a href="/courses"> << Back to courses </a>

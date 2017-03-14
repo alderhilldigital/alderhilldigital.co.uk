@@ -1,5 +1,9 @@
+<% content_for :meta_title do %>
+ : Courses
+<% end %>
 <% content_for :meta_description do %>
-Courses
+ - Qualifications and courses we offer.
+  <% @qualifications.collect{|qual| qual.name}.join(", ") + ' ' + @courses.collect{|qual| qual.name}.join(", ")
 <% end %>
 <% if @qualifications.any? %>
   <section class="news-box top-margin">
