@@ -16,4 +16,6 @@ class CoursesController < ApplicationController
     render :action => 'show'
   end
 
+  
+
 end

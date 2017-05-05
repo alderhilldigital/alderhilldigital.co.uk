@@ -44,6 +44,17 @@
           </span>
         </div>
       <% end %>
+      <br />
+      <% if @course.course_dates.any? %>
+        <h4> Dates to Book</h4>
+        <p>
+          <ul>
+            <% @course.course_dates.each do |course_date| %>
+              <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M"), course_course_date_path(@course,course_date) %> </li>
+            <% end %>
+          </ul>
+        <p>
+      <% end %>
     </div>
   </div>
 </div>

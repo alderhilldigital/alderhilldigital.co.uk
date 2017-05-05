@@ -7,6 +7,7 @@ class Admin::CoursesController < AdminController
 
   def new
     @course = Course.new()
+    @course.course_dates.build()
   end
 
   def create
@@ -19,6 +20,7 @@ class Admin::CoursesController < AdminController
 
   def edit
     @course = Course.friendly.find(params[:id])
+    @course.course_dates.build()
   end
 
   def update
@@ -34,6 +36,6 @@ class Admin::CoursesController < AdminController
 
   def course_params
     params.require(:course).permit(:name,:description,:qualification,:level,:part_time,:full_time,:application_process,
-    :progression,:course_content,:external_link,:cost,:duration,:qualification_no,:slug)
+    :progression,:course_content,:external_link,:cost,:duration,:qualification_no,:slug).permit(:course_dates_attributes => [:begins_at,:duration])
   end
 end

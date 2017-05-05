@@ -1,0 +1,26 @@
+<div class="container">
+  <% if @course.bookable? and @course.cost and @course.cost > 0 %>
+    <br />
+    <h4> Booking </h4>
+    <p>
+      If you would like to book a place on <%= @course.name %> on <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %>, you can
+    </p>
+    <%= form_tag charge_course_course_date_path(@course,@course_date) do %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-billing-address="true"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="<%= @course.name %> <%= @course_date.begins_at.try(:strftime, "(%d/%m/%Y)")%>"
+              data-amount="<%= @course.cost * 100 %>"
+              data-currency="gbp"
+              data-locale="auto"
+              data-allow-remember-me="false"></script>
+    <% end %>
+    <br />
+    or
+    <br />
+    <br />
+    <%= link_to invoice_course_path, :class => "stripe-button-el" do %>
+      <span style="display: block; min-height: 30px;">Pay by Invoice</span>
+    <% end %>
+  <% end %>
+</div>

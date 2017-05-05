@@ -28,11 +28,19 @@ Rails.application.routes.draw do
   resources :courses do
     member do
       post 'interest'
+      get 'invoice'
+    end
+    resources :course_dates do
+      member do
+        post 'charge'
+      end
     end
   end
 
   namespace :administration, :as => "admin", :module => 'admin' do
-    resources :courses
+    resources :courses do
+      resources :course_dates
+    end
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

@@ -1188,3 +1188,7 @@
  		margin: 8px 0 0;
  	}
  }
+
+ .stripe-button-el:hover{
+   text-decoration:none;
+ }

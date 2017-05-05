@@ -1,0 +1,5 @@
+<div class="container">
+  <%= simple_form_for @course_date, :url => admin_course_course_dates_path() do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+  <% end %>
+</div>

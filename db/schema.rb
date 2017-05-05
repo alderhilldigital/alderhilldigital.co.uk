@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228140828) do
+ActiveRecord::Schema.define(version: 20170505143101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "course_date_id"
+    t.string   "stripe_charge_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "telephone"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "town"
+    t.string   "county"
+    t.string   "postcode"
+    t.boolean  "paid"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "country"
+  end
+
+  add_index "bookings", ["course_date_id"], name: "index_bookings_on_course_date_id", using: :btree
+
+  create_table "course_dates", force: :cascade do |t|
+    t.integer  "course_id"
+    t.datetime "begins_at"
+    t.integer  "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "course_dates", ["course_id"], name: "index_course_dates_on_course_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170228140828) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "slug"
+    t.boolean  "bookable",            default: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -48,4 +78,5 @@ ActiveRecord::Schema.define(version: 20170228140828) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  add_foreign_key "course_dates", "courses"
 end

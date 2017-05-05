@@ -12,4 +12,8 @@
 <%= f.input :duration %>
 <%= f.input :qualification_no %>
 <%= f.input :slug %>
-<%= f.button :submit %>
+<%= f.simple_fields_for :course_dates_attributes do |dates_form| %>
+  <%= dates_form.input :begins_at %>
+  <%= dates_form.input :duration %>
+<% end %>
+<%= f.button :submit, "Save" %>
