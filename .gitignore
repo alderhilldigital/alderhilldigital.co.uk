@@ -13,3 +13,4 @@
 /tmp
 .env
 env_vars
+*.DS_Store
