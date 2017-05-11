@@ -13,10 +13,10 @@ class UserMailer < ApplicationMailer
     mail(to: 'alan@astirling.co.uk', subject: 'New course interest')
   end
 
-  def invoice_email(invoice_params,course_date_id)
+  def invoice_email(invoice,course_date_id)
     @course_date = CourseDate.find(course_date_id)
     @course = @course_date.course
-    @invoice_params = invoice_params
+    @invoice = invoice
     mail(to: 'alan@astirling.co.uk', subject: 'New invoice request')
   end
 

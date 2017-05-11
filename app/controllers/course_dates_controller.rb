@@ -43,15 +43,23 @@ class CourseDatesController < ApplicationController
   def invoice
     @course = Course.friendly.find(params[:course_id])
     @course_date = CourseDate.find(params[:id])
+    @invoice = Invoice.new()
   end
 
   def send_invoice
+    @invoice = Invoice.new(invoice_params)
     @course = Course.friendly.find(params[:course_id])
     @course_date = CourseDate.find(params[:id])
-    puts invoice_params.inspect
-    UserMailer.invoice_email(invoice_params,@course_date.id).deliver
-    flash[:success] = 'Thank you for your information. We will be in touch soon.'
-    render :action => 'show'
+    if @invoice.valid?
+      @course = Course.friendly.find(params[:course_id])
+      @course_date = CourseDate.find(params[:id])
+      UserMailer.invoice_email(@invoice,@course_date.id).deliver
+      flash[:success] = 'Thank you for your information. We will be in touch soon.'
+      render :action => 'show'
+    else
+      flash[:success] = 'There was an error saving your details. Please check and ty again.'
+      render :action => 'invoice'
+    end
   end
 
   private
