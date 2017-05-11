@@ -36,6 +36,6 @@ class Admin::CoursesController < AdminController
 
   def course_params
     params.require(:course).permit(:name,:description,:qualification,:level,:part_time,:full_time,:application_process,
-    :progression,:course_content,:external_link,:cost,:duration,:qualification_no,:slug).permit(:course_dates_attributes => [:begins_at,:duration])
+    :progression,:course_content,:external_link,:cost,:duration,:qualification_no,:slug,:show_interest,:pay_by_card,:pay_by_invoice)
   end
 end
