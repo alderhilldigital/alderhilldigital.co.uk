@@ -160,13 +160,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 				<%= javascript_include_tag :modernizr %>
     		<%= javascript_include_tag 'jquery.min' %>
+				<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.min.js' %>
     	  <%= javascript_include_tag 'fancybox/jquery.fancybox.pack' %>
 				<%= javascript_include_tag 'jquery.mobile.customized.min' %>
     	  <%= javascript_include_tag 'jquery.easing.1.3' %>
     	  <%= javascript_include_tag 'camera.min' %>
     	  <%= javascript_include_tag 'bootstrap.min' %>
     		<%= javascript_include_tag 'custom' %>
-				
+
 				<script>
 				  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
