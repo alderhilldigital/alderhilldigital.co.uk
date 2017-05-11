@@ -1,4 +1,4 @@
 <div class="container">
   <h2>Thank you</h2>
-  <h4>Your Payment of <strong>£<%= @course.cost %></strong> has been recieved.</h4>
+  <h4>Your Payment of <strong>£<%= number_with_precision(@course.cost, :precision => 2)%></strong> has been recieved.</h4>
 </div>
