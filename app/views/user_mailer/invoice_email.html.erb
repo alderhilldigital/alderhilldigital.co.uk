@@ -1,0 +1,26 @@
+<p>
+  New invoice request
+  <br />
+  Course: <%= @course.name %>
+  <br />
+  Date: <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %>
+  <br />
+  Cost: <%= @course.cost %>
+  <br />
+  Organisation: <%= @invoice_params[:organisation_name] %>
+  <br />
+  Address:
+  <br />
+    <%= @invoice_params[:address_line_1] %>
+  <br />
+    <%= @invoice_params[:address_line_2] %>
+  <br />
+    <%= @invoice_params[:town] %>
+  <br />
+    <%= @invoice_params[:county] %>
+  <br />
+    <%= @invoice_params[:postcode] %>
+  <br />
+  <br />
+  Telephone: <%= @invoice_params[:telephone_no] %>
+</p>

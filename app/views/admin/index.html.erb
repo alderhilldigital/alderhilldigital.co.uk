@@ -1,7 +1,14 @@
 <div class="container">
   <%= form_tag do %>
+    <label for="username">Username</label>
+    <br />
     <%= text_field_tag :username %>
+    <br />
+    <br />
+    <label for="password">Password</label>
+    <br />
     <%= password_field_tag :password %>
-    <%= submit_tag %>
+    <br />
+    <%= submit_tag "Login" %>
   <% end %>
 </div>

@@ -1,13 +1,12 @@
-<section class="news-box top-margin">
-  <div class="container">
-    <%= link_to "<< Back to Course", edit_admin_course_path(@course) %>
-    <br/>
-    <%= link_to "Add a Course Date", new_admin_course_course_date_path() %>
+<div class="container" style="margin-top:40px;">
+  <div class="col-md-2">
+    <ul>
+      <li><%= link_to "Back to Course <<", edit_admin_course_path(@course) %></li>
+      <li><%= link_to "Add a Course Date +", new_admin_course_course_date_path() %></li>
+    </ul>
   </div>
-</section>
-<% if @course_dates.any? %>
-  <section class="news-box top-margin">
-    <div class="container">
+  <div class="col-md-10">
+    <% if @course_dates.any? %>
       <h2> Courses Dates</h2>
       <table class="table table-striped">
         <tr>
@@ -23,6 +22,6 @@
           </tr>
         <% end %>
       </table>
-    </div>
-  </section>
-<% end %>
+    <% end %>
+  </div>
+</div>

@@ -26,31 +26,43 @@
         <h2>Course Content</h2>
         <p><%= @course.course_content.html_safe %></p>
       <% end %>
+      <% if @course.cost and !@course.cost.blank? %>
+        <p>
+          <span style="font-size:1.2em;font-family: 'Oswald', sans-serif;">Course Cost : </span>
+          £<%= number_with_precision(@course.cost, :precision => 2) %>
+        </p>
+      <% end %>
     </div>
     <div class="col-sm-4">
-      <br />
-      <h4> Interested? </h4>
-      <p>
-        If you are interested in this course and would like more information or to
-        be kept up-to-date about when this course is running, please submit your email address.
-      </p>
-      <%= form_tag interest_course_path(@course) do %>
-        <div class="input-group">
-          <input type="email" class="form-control" placeholder="Email" name='email'>
-          <span class="input-group-btn">
-            <div class="btn-group">
-              <button class="btn btn-default" type="submit">Submit</button>
-            </div>
-          </span>
-        </div>
+      <% if @course.show_interest? %>
+        <br />
+        <h4> Interested? </h4>
+        <p>
+          If you are interested in this course and would like more information or to
+          be kept up-to-date about when this course is running, please submit your email address.
+        </p>
+        <%= form_tag interest_course_path(@course) do %>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email" name='email'>
+            <span class="input-group-btn">
+              <div class="btn-group">
+                <button class="btn btn-default" type="submit">Submit</button>
+              </div>
+            </span>
+          </div>
+        <% end %>
       <% end %>
       <br />
       <% if @course.course_dates.any? %>
-        <h4> Dates to Book</h4>
+        <h4> Dates<% if @course.pay_by_card? or @course.pay_by_invoice? %> to Book <% end %></h4>
         <p>
           <ul>
             <% @course.course_dates.each do |course_date| %>
-              <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M"), course_course_date_path(@course,course_date) %> </li>
+              <% if @course.pay_by_card? or @course.pay_by_invoice? %>
+                <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M"), course_course_date_path(@course,course_date) %> </li>
+              <% else %>
+                <li><%= course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %> </li>
+              <% end %>
             <% end %>
           </ul>
         <p>

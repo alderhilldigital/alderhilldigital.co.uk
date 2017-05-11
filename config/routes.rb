@@ -28,11 +28,12 @@ Rails.application.routes.draw do
   resources :courses do
     member do
       post 'interest'
-      get 'invoice'
     end
     resources :course_dates do
       member do
         post 'charge'
+        get 'invoice'
+        post 'send_invoice'
       end
     end
   end

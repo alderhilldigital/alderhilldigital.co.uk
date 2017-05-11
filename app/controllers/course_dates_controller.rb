@@ -40,11 +40,30 @@ class CourseDatesController < ApplicationController
     redirect_to course_path(@course)
   end
 
+  def invoice
+    @course = Course.friendly.find(params[:course_id])
+    @course_date = CourseDate.find(params[:id])
+  end
+
+  def send_invoice
+    @course = Course.friendly.find(params[:course_id])
+    @course_date = CourseDate.find(params[:id])
+    puts invoice_params.inspect
+    UserMailer.invoice_email(invoice_params,@course_date.id).deliver
+    flash[:success] = 'Thank you for your information. We will be in touch soon.'
+    render :action => 'show'
+  end
+
   private
 
   def charge_params
     params.permit(:stripeToken, :stripeTokenType, :stripeEmail, :stripeBillingName,
     :stripeBillingAddressCountry, :stripeBillingAddressCountryCode, :stripeBillingAddressZip, :stripeBillingAddressLine1,
     :stripeBillingAddressCity, :stripeBillingAddressState)
+  end
+
+  def invoice_params
+    params.require(:invoice).permit(:organisation_name,:contact_person,:address_line_1,:address_line_2,:town,
+    :county,:postcode)
   end
 end

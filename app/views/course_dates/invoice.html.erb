@@ -1,0 +1,38 @@
+<div class="container">
+  <h3>Please enter your details</h3>
+  <br />
+  <%= simple_form_for :invoice, :url => send_invoice_course_course_date_path(@course,@course_date) do |f| %>
+    <div class="col-md-8">
+
+      <div class="col-md-6">
+        <%= f.input :organisation_name %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :contact_person %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :address_line_1 %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :address_line_2 %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :town %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :county %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :postcode %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :telephone_no %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <br />
+      <%= f.button :submit, "Submit" %>
+    </div>
+  <% end %>
+</div>

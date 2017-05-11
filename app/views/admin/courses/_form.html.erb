@@ -1,19 +1,69 @@
-<%= f.input :name %>
-<%= f.input :description %>
-<%= f.input :qualification %>
-<%= f.input :level %>
-<%= f.input :part_time %>
-<%= f.input :full_time %>
-<%= f.input :application_process %>
-<%= f.input :progression %>
-<%= f.input :course_content %>
-<%= f.input :external_link %>
-<%= f.input :cost %>
-<%= f.input :duration %>
-<%= f.input :qualification_no %>
-<%= f.input :slug %>
-<%= f.simple_fields_for :course_dates_attributes do |dates_form| %>
-  <%= dates_form.input :begins_at %>
-  <%= dates_form.input :duration %>
-<% end %>
-<%= f.button :submit, "Save" %>
+<div class="col-md-12">
+  <h3>Course Details</h3>
+  <div class="col-md-12">
+    <%= f.input :name %>
+  </div>
+  <div class="col-md-12">
+    <%= f.input :description, :input_html => {:style => "height:200px;"} %>
+  </div>
+  <div class="col-md-12">
+    <%= f.input :duration %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :part_time %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :full_time %>
+  </div>
+  <div class="col-md-12">
+    <%= f.input :slug %>
+  </div>
+  <div class="col-md-12">
+    <%= f.input :external_link %>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3>Qualification Details</h3>
+  <div class="col-md-4">
+    <%= f.input :qualification %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :level %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :qualification_no %>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3>Registration and Payment</h3>
+  <div class="col-md-4">
+    <%= f.input :show_interest %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :cost %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :pay_by_card %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :pay_by_invoice %>
+  </div>
+  <div class="col-md-12">
+    <%= f.input :application_process, :input_html => {:style => "height:200px;"} %>
+  </div>
+</div>
+<div class="col-md-12">
+  <h3>Additional Course Details</h3>
+  <div class="col-md-6">
+    <%= f.input :progression, :input_html => {:style => "height:200px;"} %>
+  </div>
+  <div class="col-md-6">
+    <%= f.input :course_content, :input_html => {:style => "height:200px;"} %>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <%= f.button :submit, "Save" %>
+</div>
