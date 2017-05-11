@@ -57,7 +57,7 @@ class CourseDatesController < ApplicationController
       flash[:success] = 'Thank you for your information. We will be in touch soon.'
       render :action => 'show'
     else
-      flash[:success] = 'There was an error saving your details. Please check and ty again.'
+      flash[:danger] = 'There was an error saving your details. Please check and ty again.'
       render :action => 'invoice'
     end
   end
