@@ -3,7 +3,7 @@ class Admin::CourseDatesController < AdminController
 
   def index
     @course = Course.friendly.find(params[:course_id])
-    @course_dates = CourseDate.all
+    @course_dates = @course.course_dates.all
   end
 
   def new
