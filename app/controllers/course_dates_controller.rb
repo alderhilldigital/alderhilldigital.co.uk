@@ -72,6 +72,6 @@ class CourseDatesController < ApplicationController
 
   def invoice_params
     params.require(:invoice).permit(:organisation_name,:contact_person,:address_line_1,:address_line_2,:town,
-    :county,:postcode,:telephone_no)
+    :county,:postcode,:telephone_no,:name,:email)
   end
 end
