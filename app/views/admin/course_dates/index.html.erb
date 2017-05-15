@@ -18,7 +18,13 @@
           <tr>
             <td><%= course_date.begins_at.try(:strftime, "%d %b %Y %H:%M") %></td>
             <td><%= course_date.duration %> Minutes</td>
-            <td><%= link_to "Remove", admin_course_course_date_path(course_date.course,course_date), :method => :delete %></td>
+            <td>
+              <% if course_date.disabled? %>
+                <%= link_to "enable", enable_admin_course_course_date_path(course_date.course,course_date) %>
+              <% else %>
+                <%= link_to "disable", disable_admin_course_course_date_path(course_date.course,course_date) %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </table>

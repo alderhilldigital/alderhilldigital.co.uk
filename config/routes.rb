@@ -40,7 +40,12 @@ Rails.application.routes.draw do
 
   namespace :administration, :as => "admin", :module => 'admin' do
     resources :courses do
-      resources :course_dates
+      resources :course_dates do
+        member do
+          get 'disable'
+          get 'enable'
+        end
+      end
     end
   end
 

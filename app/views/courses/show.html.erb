@@ -53,11 +53,11 @@
         <% end %>
       <% end %>
       <br />
-      <% if @course.course_dates.any? %>
+      <% if @course.course_dates.active.any? %>
         <h4> Dates<% if @course.pay_by_card? or @course.pay_by_invoice? %> to Book <% end %></h4>
         <p>
           <ul>
-            <% @course.course_dates.each do |course_date| %>
+            <% @course.course_dates.active.each do |course_date| %>
               <% if @course.pay_by_card? or @course.pay_by_invoice? %>
                 <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M"), course_course_date_path(@course,course_date) %> </li>
               <% else %>

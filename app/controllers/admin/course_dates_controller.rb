@@ -25,6 +25,20 @@ class Admin::CourseDatesController < AdminController
     end
   end
 
+  def disable
+    @course = Course.friendly.find(params[:course_id])
+    @courseDate = CourseDate.find(params[:id])
+    @courseDate.update_attributes(:disabled => true)
+    redirect_to admin_course_course_dates_path(@course)
+  end
+
+  def enable
+    @course = Course.friendly.find(params[:course_id])
+    @courseDate = CourseDate.find(params[:id])
+    @courseDate.update_attributes(:disabled => false)
+    redirect_to admin_course_course_dates_path(@course)
+  end
+
   def destroy
     @course = Course.friendly.find(params[:course_id])
     @courseDate = CourseDate.find(params[:id])
