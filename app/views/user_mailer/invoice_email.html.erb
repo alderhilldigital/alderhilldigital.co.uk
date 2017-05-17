@@ -3,7 +3,7 @@
   <br />
   Course: <%= @course.name %>
   <br />
-  Date: <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %>
+  Date: <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P") %>
   <br />
   Cost: <%= @course.cost %>
   <br />

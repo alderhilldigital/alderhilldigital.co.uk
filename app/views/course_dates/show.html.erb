@@ -8,7 +8,7 @@
         <h3><%= @course_date.spaces_left %> <%= @course_date.spaces_left > 1 ? "spaces" : "space" %> left!</h3>
       <% end %>
       <p>
-        If you would like to book a place on <%= @course.name %> on <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %>, you can
+        If you would like to book a place on <%= @course.name %> on <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P") %>, you can
       </p>
       <% if @course.pay_by_card? and @course.cost and @course.cost > 0 %>
         <%= form_tag charge_course_course_date_path(@course,@course_date) do %>

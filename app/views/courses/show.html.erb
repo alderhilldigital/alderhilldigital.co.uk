@@ -59,7 +59,7 @@
           <ul>
             <% @course.course_dates.active.each do |course_date| %>
               <% if @course.pay_by_card? or @course.pay_by_invoice? and course_date.spaces_left? %>
-                <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M (#{course_date.spaces_left})"), course_course_date_path(@course,course_date) %> </li>
+                <li><%= link_to course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P (#{course_date.spaces_left})"), course_course_date_path(@course,course_date) %> </li>
               <% else %>
                 <li style="<%= 'text-decoration:line-through;' unless course_date.spaces_left? %>"><%= course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M (#{course_date.spaces_left})") %> </li>
               <% end %>
