@@ -18,7 +18,7 @@ class Admin::CourseDatesController < AdminController
     course_date_params["begins_at(3i)"].to_i,
     course_date_params["begins_at(4i)"].to_i,
     course_date_params["begins_at(5i)"].to_i
-    if CourseDate.create(:course_id => @course.id, :begins_at => begins_at, :duration => course_date_params[:duration])
+    if CourseDate.create(:course_id => @course.id, :begins_at => begins_at, :duration => course_date_params[:duration], :spaces => course_date_params[:spaces])
       redirect_to admin_course_course_dates_path(@course)
     else
       render :action => 'edit'
