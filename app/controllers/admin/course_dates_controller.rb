@@ -49,7 +49,7 @@ class Admin::CourseDatesController < AdminController
   private
 
   def course_date_params
-    params.require(:course_date).permit(:course_id, :begins_at, :duration)
+    params.require(:course_date).permit(:course_id, :begins_at, :duration, :spaces)
   end
 
 end

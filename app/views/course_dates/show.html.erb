@@ -1,6 +1,9 @@
 <div class="container">
   <br />
   <h4> Booking </h4>
+  <% if @course_date.spaces and @course_date.spaces_left? %>
+    <h3><%= @course_date.spaces_left %> <%= @course_date.spaces_left > 1 ? "spaces" : "space" %> left!</h3>
+  <% end %>
   <p>
     If you would like to book a place on <%= @course.name %> on <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %H:%M") %>, you can
   </p>

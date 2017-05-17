@@ -1,0 +1,16 @@
+<p>
+  Thank you for booking <%= @course.name %>.
+  <br />
+  <b>Booking Reference: </b><%= "#{@course.name[0,2].upcase}#{@booking.id.to_s.rjust(4, '0')}" %>
+
+  Here are some further details:
+  <br />
+  Location: Alderhill Digital, 1 Hillman's Court, Ballycastle Road, Coleraine, BT52 2DF
+  <br />
+  Date: <%= @course_date.begins_at.try(:strftime,"%A %e %b %Y") %>
+  <br />
+  Time: <%= @course_date.begins_at.try(:strftime,"%l:%M%P") %>
+  <br />
+  <br />
+  For parents who wish to stay there will be free tea, coffee and wifi in the communal area. For parents who wish to leave their children they will be required to leave their name and contact details when dropping off their child.
+</p>
