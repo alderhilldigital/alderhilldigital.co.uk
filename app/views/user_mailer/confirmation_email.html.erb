@@ -1,8 +1,13 @@
 <p>
+  Hello,
+  <br />
+  <br />
   Thank you for booking <%= @course.name %>.
   <br />
-  <b>Booking Reference: </b><%= "#{@course.name[0,2].upcase}#{@booking.id.to_s.rjust(4, '0')}" %>
-
+  <br />
+  <b>Booking Reference: </b><%= "#{@course.name[0,3].upcase}#{@booking.id.to_s.rjust(4, '0')}" %>
+  <br />
+  <br />
   Here are some further details:
   <br />
   Location: Alderhill Digital, 1 Hillman's Court, Ballycastle Road, Coleraine, BT52 2DF

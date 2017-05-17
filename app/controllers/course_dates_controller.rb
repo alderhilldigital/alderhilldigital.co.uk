@@ -23,7 +23,7 @@ class CourseDatesController < ApplicationController
       )
 
       if customer and charge
-        Booking.create(
+        booking = Booking.create(
           :course_date_id => @course_date.id,
           :stripe_charge_id => charge.id,
           :name => charge_params[:stripeBillingName],
@@ -35,6 +35,9 @@ class CourseDatesController < ApplicationController
           :country => charge_params[:stripeBillingAddressCountry],
           :paid => true
         )
+
+        UserMailer.confirmation_email(booking,@course_date).deliver if booking and @course.send_email?
+
       end
     end
   rescue Stripe::CardError => e

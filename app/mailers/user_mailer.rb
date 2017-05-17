@@ -20,4 +20,11 @@ class UserMailer < ApplicationMailer
     mail(to: 'alan@astirling.co.uk', subject: 'New invoice request')
   end
 
+  def confirmation_email(booking,course_date)
+    @course_date = course_date
+    @course = @course_date.course
+    @booking = booking
+    mail(to: booking.email, subject: 'Alderhill Digital: booking information')
+  end
+
 end

@@ -1,4 +1,13 @@
 <div class="container">
   <h2>Thank you</h2>
   <h4>Your Payment of <strong>£<%= number_with_precision(@course.cost, :precision => 2)%></strong> has been recieved.</h4>
+  <% if @course.send_email? %>
+    <h4>
+      You should receive a confirmation email shortly.
+      <br />
+      <br />
+      If you don't receive the email, please check your spam filter. If you still cannot locate the email please contact use to confirm booking.
+    </h4>
+  <% end %>
+
 </div>
