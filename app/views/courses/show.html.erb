@@ -28,7 +28,7 @@
       <% end %>
       <% if @course.cost and !@course.cost.blank? %>
         <p>
-          <span style="font-size:1.2em;font-family: 'Oswald', sans-serif;">Course Cost : </span>
+          <span style="font-size:1.2em;font-family: 'Oswald', sans-serif;">Cost : </span>
           £<%= number_with_precision(@course.cost, :precision => 2) %>
         </p>
       <% end %>
