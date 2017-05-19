@@ -73,6 +73,9 @@
       }
       var amount = <%= @course.cost * 100 %> * quantity;
     }else{
+      quantity = 1;
+      document.getElementById('quantity').value = quantity;
+      alert("Invalid quantity. Your quantity has been reset to 1.");
       var amount = <%= @course.cost * 100 %>;
     }
     handler.open({
