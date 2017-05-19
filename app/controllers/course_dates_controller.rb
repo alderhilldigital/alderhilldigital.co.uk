@@ -7,6 +7,7 @@ class CourseDatesController < ApplicationController
   def charge
     @course = Course.friendly.find(params[:course_id])
     @course_date = CourseDate.find(params[:id])
+    @amount = (@course.cost*100).to_i * charge_params[:quantity].to_i
 
     if @course_date.bookings.count < @course_date.spaces
 
@@ -17,30 +18,31 @@ class CourseDatesController < ApplicationController
 
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => (@course.cost*100).to_i,
+        :amount      => @amount,
         :description => @course.name,
         :currency    => 'gbp'
       )
 
       if customer and charge
-        booking = Booking.create(
-          :course_date_id => @course_date.id,
-          :stripe_charge_id => charge.id,
-          :name => charge_params[:stripeBillingName],
-          :email => charge_params[:stripeEmail],
-          :address_line1 => charge_params[:stripeBillingAddressLine1],
-          :postcode => charge_params[:stripeBillingAddressZip],
-          :county => charge_params[:stripeBillingAddressState],
-          :town => charge_params[:stripeBillingAddressCity],
-          :country => charge_params[:stripeBillingAddressCountry],
-          :paid => true
-        )
-
-        UserMailer.confirmation_email(booking,@course_date).deliver if booking and @course.send_email?
-
+        (1..charge_params[:quantity].to_i).each do |i|
+          booking = Booking.create(
+            :course_date_id => @course_date.id,
+            :stripe_charge_id => charge.id,
+            :name => charge_params[:stripeBillingName],
+            :email => charge_params[:stripeEmail],
+            :address_line1 => charge_params[:stripeBillingAddressLine1],
+            :postcode => charge_params[:stripeBillingAddressZip],
+            :county => charge_params[:stripeBillingAddressState],
+            :town => charge_params[:stripeBillingAddressCity],
+            :country => charge_params[:stripeBillingAddressCountry],
+            :paid => true
+          )
+          UserMailer.confirmation_email(booking,@course_date).deliver if booking and @course.send_email?
+        end
       end
     end
   rescue Stripe::CardError => e
+    puts e.message
     flash[:error] = e.message
     redirect_to course_path(@course)
   end
@@ -72,7 +74,7 @@ class CourseDatesController < ApplicationController
   def charge_params
     params.permit(:stripeToken, :stripeTokenType, :stripeEmail, :stripeBillingName,
     :stripeBillingAddressCountry, :stripeBillingAddressCountryCode, :stripeBillingAddressZip, :stripeBillingAddressLine1,
-    :stripeBillingAddressCity, :stripeBillingAddressState)
+    :stripeBillingAddressCity, :stripeBillingAddressState,:quantity)
   end
 
   def invoice_params
