@@ -32,6 +32,9 @@ gem 'unicorn'
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
 gem 'stripe'
+
+gem 'exception_notification'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
