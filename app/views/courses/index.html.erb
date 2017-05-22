@@ -4,6 +4,23 @@
 <% content_for :meta_description do %>
  : Qualifications and courses we offer. <%= @qualifications.collect{|c| c.name}.join(", ") + ', ' + @courses.collect{|c| c.name}.join(", ") %>
 <% end %>
+<% if @courses.any? %>
+  <section class="news-box top-margin">
+    <div class="container">
+      <h2> Courses </h2>
+      <ul class="list-group courses">
+        <% @courses.each do |course| %>
+          <li class="list-group-item">
+            <%= link_to course.name, course_path(course) %></a>
+  					<span style="white-space: nowrap;">
+              <%= image_tag("fulltime.png", :alt => "full time") if course.full_time? %>
+  					  <%= image_tag("parttime.png", :alt => "part time") if course.part_time?  %>
+            </span>
+          </li>
+        <% end %>
+    </div>
+  </section>
+<% end %>
 <% if @qualifications.any? %>
   <section class="news-box top-margin">
       <div class="container">
@@ -21,21 +38,4 @@
         </ul>
       </div>
     </section>
-<% end %>
-<% if @courses.any? %>
-  <section class="news-box top-margin">
-    <div class="container">
-      <h2> Courses </h2>
-      <ul class="list-group courses">
-        <% @courses.each do |course| %>
-          <li class="list-group-item">
-            <%= link_to course.name, course_path(course) %></a>
-  					<span style="white-space: nowrap;">
-              <%= image_tag("fulltime.png", :alt => "full time") if course.full_time? %>
-  					  <%= image_tag("parttime.png", :alt => "part time") if course.part_time?  %>
-            </span>
-          </li>
-        <% end %>
-    </div>
-  </section>
 <% end %>
