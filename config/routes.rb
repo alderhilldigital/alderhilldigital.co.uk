@@ -30,6 +30,9 @@ Rails.application.routes.draw do
       post 'interest'
     end
     resources :course_dates do
+      collection do
+        get 'book'
+      end
       member do
         post 'charge'
         get 'invoice'

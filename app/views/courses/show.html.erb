@@ -26,7 +26,7 @@
         <h2>Course Content</h2>
         <p><%= @course.course_content.html_safe %></p>
       <% end %>
-      <% if @course.cost and !@course.cost.blank? %>
+      <% if false # hide cost label @course.cost and !@course.cost.blank? %>
         <p>
           <span style="font-size:1.2em;font-family: 'Oswald', sans-serif;">Cost : </span>
           £<%= number_with_precision(@course.cost, :precision => 2) %>

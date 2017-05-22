@@ -4,6 +4,21 @@ class CourseDatesController < ApplicationController
     @course_date = CourseDate.find(params[:id])
   end
 
+  def book
+    @course = Course.friendly.find(params[:course_id])
+    @course_date = CourseDate.find(params[:id] ? params[:id] : @course.course_dates.order("begins_at ASC").first)
+    loop do
+      @course_date_3_30 = @course.course_dates.where(["begins_at >= ?", @course_date.begins_at]).order("begins_at ASC")[0]
+      @course_date_4_30 = @course.course_dates.where(["begins_at >= ?", @course_date.begins_at]).order("begins_at ASC")[1]
+      @course_date_next = @course.course_dates.where(["begins_at >= ?", @course_date.begins_at]).order("begins_at ASC")[2]
+      if @course_date_3_30.spaces_left? or @course_date_4_30.spaces_left?
+        break
+      else
+        @course_date = @course_date_next
+      end
+    end
+  end
+
   def charge
     @course = Course.friendly.find(params[:course_id])
     @course_date = CourseDate.find(params[:id])

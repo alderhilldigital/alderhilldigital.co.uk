@@ -1,0 +1,42 @@
+<div class='container'>
+  <%= link_to "<< Back to #{@course.name}", course_path(@course) %>
+  <div class="col-md-12">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 grey-panel" style="text-align:center;">
+      <h1><%= @course.name %></h1>
+      <h2> Next Session <%= @course_date.begins_at.try(:strftime, "%A %e %b") %> </h2>
+      <h3> What time would you like to book ? </h3>
+      <br/>
+      <div class="col-md-4">
+        <% if @course_date_3_30.spaces_left? %>
+          <div class="choose-time">
+            <%= link_to @course_date_3_30.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_3_30) %>
+          </div>
+        <% else %>
+          <div class="choose-time-booked">
+            <%= @course_date_3_30.begins_at.try(:strftime,'%l:%M%P') %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <% if @course_date_4_30.spaces_left? %>
+          <div class="choose-time">
+            <%= link_to @course_date_4_30.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_4_30) %>
+          </div>
+        <% else %>
+          <div class="choose-time-booked">
+            <%= @course_date_4_30.begins_at.try(:strftime,'%l:%M%P') %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <div class="choose-next-last">
+          <%= link_to "+1 week >>",book_course_course_dates_path(@course,:id => @course_date_next.id) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
