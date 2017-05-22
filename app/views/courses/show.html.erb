@@ -53,7 +53,7 @@
         <% end %>
       <% end %>
       <br />
-      <% if @course.course_dates.active.any? %>
+      <% if @course.course_dates.active.any? and @course.pay_by_card? %>
         <h4> Dates<% if @course.pay_by_card? %> to Book <% end %></h4>
         <p>
           <ul>
