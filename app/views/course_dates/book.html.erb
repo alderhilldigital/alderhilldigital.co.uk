@@ -31,9 +31,11 @@
         <% end %>
       </div>
       <div class="col-md-4">
-        <div class="choose-next-last">
-          <%= link_to "+1 week >>",book_course_course_dates_path(@course,:id => @course_date_next.id) %>
-        </div>
+        <% if @course_date_next %>
+          <div class="choose-next-last">
+            <%= link_to "+1 week >>",book_course_course_dates_path(@course,:id => @course_date_next.id) %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-md-2">
