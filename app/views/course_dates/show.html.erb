@@ -5,6 +5,7 @@
     <div class="col-md-6 grey-panel">
       <br />
       <h2>Booking</h2>
+      
       <% if @course.pay_by_card? and !@course.pay_by_invoice? %>
         <% if @course_date.spaces and @course_date.spaces_left? %>
           <h3><%= @course_date.spaces_left %> <%= @course_date.spaces_left > 1 ? "spaces" : "space" %> left!</h3>
