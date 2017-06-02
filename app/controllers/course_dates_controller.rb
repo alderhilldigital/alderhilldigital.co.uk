@@ -37,19 +37,23 @@ class CourseDatesController < ApplicationController
         :description => @course.name,
         :currency    => 'gbp'
       )
+      puts charge.source.name
+      puts charge.source[:address_line1]
+
 
       if customer and charge
         (1..charge_params[:quantity].to_i).each do |i|
           booking = Booking.create(
             :course_date_id => @course_date.id,
             :stripe_charge_id => charge.id,
-            :name => charge_params[:stripeBillingName],
+            :name => charge.source.name,
             :email => charge_params[:stripeEmail],
-            :address_line1 => charge_params[:stripeBillingAddressLine1],
-            :postcode => charge_params[:stripeBillingAddressZip],
-            :county => charge_params[:stripeBillingAddressState],
-            :town => charge_params[:stripeBillingAddressCity],
-            :country => charge_params[:stripeBillingAddressCountry],
+            :address_line1 => charge.source[:address_line1],
+            :address_line2 => charge.source[:address_line2],
+            :postcode => charge.source[:address_zip],
+            :county => charge.source[:address_state],
+            :town => charge.source[:address_city],
+            :country => charge.source[:address_country],
             :paid => true
           )
           UserMailer.confirmation_email(booking,@course_date).deliver if booking and @course.send_email?
