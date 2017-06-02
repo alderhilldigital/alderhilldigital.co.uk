@@ -1,0 +1,71 @@
+<div class='container'>
+  <%= form_tag charge_admin_bookings_path, :id => 'pay_form' do %>
+    <label for="name" style="width:100px;">Name</label>
+    <input type="text" id="name" name="name"></input>
+    <br />
+    <label for="telephone" style="width:100px;">Telephone</label>
+    <input type="number" pattern="\d*" id="telephone" name="telephone"></input>
+    <br />
+    <label for="course_date_id" style="width:100px;">Course</label>
+    <%= select_tag :course_date_id, options_for_select(@course_dates) %>
+    <br/ >
+    <label for="quantity" style="width:100px;">Quantity</label>
+    <input type="integer" id="quantity" name="quantity" style="width:40px;" value="1"></input>
+    <br />
+    <br />
+    <button id="customButton" class="stripe-button-copy">
+      <span style="display: block; min-height: 30px;">Pay by card</span>
+    </button>
+    or
+    <%= link_to "Back", :back %>
+
+  <% end %>
+</div>
+<% content_for :footer do %>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+    var handler = StripeCheckout.configure({
+      key: '<%= ENV['PUBLISHABLE_KEY'] %>',
+      image: 'https://www.alderhilldigital.co.uk/logo-small.png',
+      locale: 'auto',
+      token: function(token) {
+        var pay_form = document.getElementById('pay_form');
+        var tokenInput = document.createElement("input");
+        tokenInput.type = "hidden";
+        tokenInput.name = "stripeToken";
+        tokenInput.value = token.id;
+        var emailInput = document.createElement("input");
+        emailInput.type = "hidden";
+        emailInput.name = "stripeEmail";
+        emailInput.value = token.email;
+        pay_form.appendChild(tokenInput);
+        pay_form.appendChild(emailInput);
+        pay_form.submit();
+      }
+    });
+
+    document.getElementById('customButton').addEventListener('click', function(e) {
+      // Open Checkout with further options:
+      var quantity = parseInt(document.getElementById('quantity').value);
+      var description = document.getElementById('course_date_id').text;
+      var amount = quantity*500;
+      console.log(description);
+      console.log(amount);
+
+      handler.open({
+        name: 'Alderhill Digital',
+        description: description,
+        zipCode: true,
+        currency: 'gbp',
+        amount: amount,
+        allowRememberMe: false
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function() {
+      handler.close();
+    });
+  </script>
+<% end %>

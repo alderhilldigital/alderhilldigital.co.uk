@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  layout 'admin'
 
   def authenticate
     if (params[:username] == ENV['ADMIN_USERNAME'] and params[:password] == ENV['ADMIN_PASSWORD']) or session[:pass_auth_gate] == 'true'
@@ -9,7 +10,11 @@ class AdminController < ApplicationController
   end
 
   def index
-    redirect_to admin_courses_path if session[:pass_auth_gate] == 'true'
+    if session[:pass_auth_gate] == 'true'
+      redirect_to admin_courses_path
+    else
+      render :layout => 'application'
+    end
   end
 
 end

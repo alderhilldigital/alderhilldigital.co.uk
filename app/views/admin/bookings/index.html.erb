@@ -1,0 +1,27 @@
+<% if @bookings.any? %>
+  <section class="news-box top-margin">
+    <div class="container">
+      <h2> Bookings </h2>
+      <table class="table table-striped">
+        <tr>
+          <th>Course</th>
+          <th>Session</th>
+          <th>Name</th>
+          <th>Phone No.</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.course_date.course.name %></td>
+            <td><%= booking.course_date.begins_at.try(:strftime, "%d/%m/%Y %H:%M") %></td>
+            <td><%= booking.name %></td>
+            <td><%= booking.telephone %></td>
+            <td><%= booking.email %></td>
+            <td><%= link_to "edit", edit_admin_booking_path(booking) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </section>
+<% end %>
