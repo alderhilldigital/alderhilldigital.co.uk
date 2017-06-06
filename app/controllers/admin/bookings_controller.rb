@@ -1,7 +1,7 @@
 class Admin::BookingsController < AdminController
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.includes(:course_date).order("course_dates.begins_at")
   end
 
   def new
