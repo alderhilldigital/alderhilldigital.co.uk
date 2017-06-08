@@ -4,7 +4,7 @@
       <h2> Bookings </h2>
       <%= simple_form_for :date_form, :url => admin_bookings_path, :method => :get do |f| %>
         <%= f.input :date, :as => :select, :collection => @dates, :include_blank => true, :selected => (params[:date_form][:date] if params[:date_form]) %>
-        <%= f.button :submit, "Save" %>
+        <%= f.button :submit, "Update Results" %>
       <% end %>
       <table class="table table-striped">
         <tr>
