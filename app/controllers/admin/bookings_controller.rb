@@ -2,6 +2,8 @@ class Admin::BookingsController < AdminController
 
   def index
     @bookings = Booking.includes(:course_date).order("course_dates.begins_at")
+    @bookings = @bookings.where(:course_date_id => params[:date_form][:date]) if params[:date_form][:date] and !params[:date_form][:date].blank?
+    @dates = CourseDate.all.collect{|cd| ["#{cd.course.name} #{cd.begins_at.try(:strftime, "%d/%m/%Y %H:%M")}", cd.id]}
   end
 
   def new

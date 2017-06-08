@@ -10,6 +10,6 @@ class CourseDate < ActiveRecord::Base
   end
 
   def spaces_left
-    return spaces ? (spaces - bookings.count) : nil
+    return spaces ? ((spaces - bookings.count) < 0 ? 0 : (spaces - bookings.count)) : nil
   end
 end

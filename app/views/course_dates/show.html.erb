@@ -5,10 +5,10 @@
     <div class="col-md-6 grey-panel">
       <br />
       <h2>Booking</h2>
-      
+
       <% if @course.pay_by_card? and !@course.pay_by_invoice? %>
-        <% if @course_date.spaces and @course_date.spaces_left? %>
-          <h3><%= @course_date.spaces_left %> <%= @course_date.spaces_left > 1 ? "spaces" : "space" %> left!</h3>
+        <% if @course_date.spaces %>
+          <h3><%= @course_date.spaces_left %> <%= @course_date.spaces_left != 1 ? "spaces" : "space" %> left!</h3>
         <% end %>
       <% end %>
 
@@ -17,7 +17,7 @@
         <br />
         <br />
       </p>
-      <% if @course.pay_by_card? and @course.cost and @course.cost > 0 %>
+      <% if @course.pay_by_card? and @course_date.spaces_left? and @course.cost and @course.cost > 0 %>
         <%= form_tag charge_course_course_date_path(@course,@course_date), :id => 'pay_form' do %>
           <label for="quantity">Quantity</label>
           <input type="integer" id="quantity" name="quantity" style="width:40px;" value="1"></input>
