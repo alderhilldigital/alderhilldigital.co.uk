@@ -10,24 +10,24 @@
       <h3> What time would you like to book ? </h3>
       <br/>
       <div class="col-md-4">
-        <% if @course_date_3_30.spaces_left? %>
+        <% if @course_date_first.spaces_left? %>
           <div class="choose-time">
-            <%= link_to @course_date_3_30.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_3_30) %>
+            <%= link_to @course_date_first.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_first) %>
           </div>
         <% else %>
           <div class="choose-time-booked">
-            <%= @course_date_3_30.begins_at.try(:strftime,'%l:%M%P') %>
+            <%= @course_date_first.begins_at.try(:strftime,'%l:%M%P') %>
           </div>
         <% end %>
       </div>
       <div class="col-md-4">
-        <% if @course_date_4_30.spaces_left? %>
+        <% if @course_date_second.spaces_left? %>
           <div class="choose-time">
-            <%= link_to @course_date_4_30.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_4_30) %>
+            <%= link_to @course_date_second.begins_at.try(:strftime,'%l:%M%P'),course_course_date_path(@course,@course_date_second) %>
           </div>
         <% else %>
           <div class="choose-time-booked">
-            <%= @course_date_4_30.begins_at.try(:strftime,'%l:%M%P') %>
+            <%= @course_date_second.begins_at.try(:strftime,'%l:%M%P') %>
           </div>
         <% end %>
       </div>
