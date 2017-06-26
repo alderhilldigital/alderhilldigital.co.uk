@@ -3,7 +3,6 @@ class CourseDatesController < ApplicationController
     @course = Course.friendly.find(params[:course_id])
     @course_date = CourseDate.find(params[:id])
     @undiscounted_emails = Booking.joins(:course_date).where(["course_dates.course_id = ?", @course.id]).pluck(:email).uniq.compact - @course_date.bookings.pluck(:email).uniq.compact
-    puts "EMAILS - #{@undiscounted_emails.inspect}"
   end
 
   def book
@@ -26,7 +25,7 @@ class CourseDatesController < ApplicationController
     @course_date = CourseDate.find(params[:id])
     @amount = (@course.cost*100).to_i * charge_params[:quantity].to_i
     @undiscounted_emails = Booking.joins(:course_date).where(["course_dates.course_id = ?", @course.id]).pluck(:email).uniq.compact - @course_date.bookings.pluck(:email).uniq.compact
-    @amount -= 500 if @undiscounted_emails.include?(params[:discount])
+    @amount -= 500*charge_params[:quantity].to_i if @undiscounted_emails.include?(params[:discount])
 
     if @course_date.bookings.count < @course_date.spaces
 
