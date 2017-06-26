@@ -6,7 +6,7 @@
     <div class="col-md-8 grey-panel" style="text-align:center;">
       <h1><%= @course.name %></h1>
 
-      <h2> Next Session <%= @course_date.begins_at.try(:strftime, "%A %e %b") %> - <%= (@course_date.begins_at + 1.days).try(:strftime, "%A %e %b") %> </h2>
+      <h2> Next Session <%= @course_date.begins_at.try(:strftime, "%A %e %b") %> - <%= (@course_date.begins_at + 4.days).try(:strftime, "%A %e %b") %> </h2>
       <h3> What time would you like to book ? </h3>
       <br/>
       <div class="col-md-4">
