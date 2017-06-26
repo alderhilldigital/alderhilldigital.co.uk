@@ -18,9 +18,12 @@
         <br />
       </p>
       <% if @course.pay_by_card? and @course_date.spaces_left? and @course.cost and @course.cost > 0 %>
-        <%= form_tag charge_course_course_date_path(@course,@course_date), :id => 'pay_form' do %>
-          <label for="quantity">Quantity</label>
+        <%= form_tag charge_course_course_date_path(@course,@course_date), :id => 'pay_form', :style => "text-align:left; margin-left:100px;" do %>
+          <label for="quantity" style="width:100px;">Quantity</label>
           <input type="integer" id="quantity" name="quantity" style="width:40px;" value="1"></input>
+          <br />
+          <label for="discount" style="width:100px;">Discount Code</label>
+          <input type="text" id="discount" name="discount" style="width250px;"></input>
           <br />
           <br />
           <button id="customButton" class="stripe-button-copy">
@@ -88,6 +91,11 @@
       alert("Invalid quantity. Your quantity has been reset to 1.");
       var amount = <%= @course.cost * 100 %>;
     }
+    console.log(amount);
+    if((<%= @undiscounted_emails.to_json.html_safe %>.indexOf(document.getElementById('discount').value)) >= 0){
+      amount -= 500;
+    }
+    console.log(amount);
     handler.open({
       name: 'Alderhill Digital',
       description: '<%= @course.name %> <%= @course_date.begins_at.try(:strftime, "(%d/%m/%Y)")%>',
