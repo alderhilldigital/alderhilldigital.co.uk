@@ -33,7 +33,7 @@ class CourseDatesController < ApplicationController
         :email => charge_params[:stripeEmail],
         :source  => charge_params[:stripeToken]
       )
-
+      puts @amount
       charge = Stripe::Charge.create(
         :customer    => customer.id,
         :amount      => @amount,
