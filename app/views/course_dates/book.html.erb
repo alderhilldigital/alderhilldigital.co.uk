@@ -6,7 +6,7 @@
     <div class="col-md-8 grey-panel" style="text-align:center;">
       <h1><%= @course.name %></h1>
 
-      <h2> Next Session <%= @course_date.begins_at.try(:strftime, "%A %e %b") %> </h2>
+      <h2> Next Session <%= @course_date.begins_at.try(:strftime, "%A %e %b") %> - <%= (@course_date.begins_at + 1.days).try(:strftime, "%A %e %b") %> </h2>
       <h3> What time would you like to book ? </h3>
       <br/>
       <div class="col-md-4">
@@ -39,7 +39,7 @@
         <% end %>
       </div>
       <div class="col-md-12">
-        <h3>Please call to book multiple sessions or block book. <b>02870 400 955</b></h3>
+        <!--<h3>Please call to book multiple sessions or block book. <b>02870 400 955</b></h3>-->
       </div>
     </div>
     <div class="col-md-2">
