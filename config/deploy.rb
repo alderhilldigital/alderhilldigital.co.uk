@@ -21,7 +21,7 @@ set :rails_env, 'production'
 #   set :port, '30000'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 set :user, 'ubuntu'                # Optional
-set :identity_file, '/Users/alanstirling/Dropbox/web1.pem'
+set :identity_file, '/Users/alanstirling/Downloads/web1.pem'
 set :forward_agent, true     # SSH forward_agent.
 set :port, '22'
 
@@ -49,7 +49,7 @@ end
 task :env do
   command %{
     echo "-----> Loading environment"
-    #{File.read("/webapps/alderhill/env_vars")}
+    #{File.read("/webapps/alderhilldigital.co.uk/env_vars")}
   }
 end
 
