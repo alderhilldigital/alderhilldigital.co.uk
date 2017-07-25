@@ -1311,3 +1311,8 @@
   border-radius: 4px;
   background: #DDD;
 }
+
+.about-banner{
+  height: 150px;
+  background-color:black;
+}
