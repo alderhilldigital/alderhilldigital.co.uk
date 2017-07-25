@@ -1313,6 +1313,25 @@
 }
 
 .about-banner{
-  height: 150px;
-  background-color:black;
+  height: 200px;
+  background: black url(sea-legs.jpeg) no-repeat;
+  background-size: cover;
+ 	background-position-x: center;
+  background-position-y: top;
+}
+
+.courses-banner{
+  height: 200px;
+  background: black url(whiteboard.jpg) no-repeat;
+  background-size: cover;
+ 	background-position-x: left;
+  background-position-y: bottom;
+}
+
+.contact-banner{
+  height: 200px;
+  background: black url(arrows.jpeg) no-repeat;
+  background-size: cover;
+ 	background-position-x: center;
+  background-position-y: middle;
 }

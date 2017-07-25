@@ -4,23 +4,29 @@
 <% content_for :meta_description do %>
  : Qualifications and courses we offer. <%= @qualifications.collect{|c| c.name}.join(", ") + ', ' + @courses.collect{|c| c.name}.join(", ") %>
 <% end %>
-<% if @courses.any? %>
-  <section class="news-box top-margin">
+
+<section>
+  <div class="courses-banner">
+
+  </div>
+</section>
+
+<section class="news-box top-margin">
     <div class="container">
-      <h2> Courses </h2>
-      <ul class="list-group courses">
-        <% @courses.each do |course| %>
-          <li class="list-group-item">
-            <%= link_to course.name, course_path(course) %></a>
-  					<span style="white-space: nowrap;">
-              <%= image_tag("fulltime.png", :alt => "full time") if course.full_time? %>
-  					  <%= image_tag("parttime.png", :alt => "part time") if course.part_time?  %>
-            </span>
-          </li>
-        <% end %>
+      <h2> Qualifications & Courses </h2>
+      <p>
+        Our qualifications and courses are delivered in an environment similar to those that would be experienced in a real development enviornment.
+        Since our qualifications and courses are tailored to maximise learning within the technology sector we have been able to focus and enhance our learners experiences to make them specific to the industry.
+      </p>
+      <p>
+        The qualifications that we deliver are Ofqual regulated qualifications delivered by certified and experienced trainers. They are reviewed regularly to keep they inline with industry changes and current educational guideines.
+      </p>
+      <p>
+        Our courses are designed to deliver learning on specific industry skills and technologies that are used in businesses across the world. Using real-world tools and techniques, students get hands-on experience using tools and software that businesses use on a daily basis.
+      </p>
     </div>
-  </section>
-<% end %>
+</section>
+
 <% if @qualifications.any? %>
   <section class="news-box top-margin">
       <div class="container">
@@ -38,4 +44,22 @@
         </ul>
       </div>
     </section>
+<% end %>
+
+<% if @courses.any? %>
+  <section class="news-box top-margin">
+    <div class="container">
+      <h2> Courses </h2>
+      <ul class="list-group courses">
+        <% @courses.each do |course| %>
+          <li class="list-group-item">
+            <%= link_to course.name, course_path(course) %></a>
+  					<span style="white-space: nowrap;">
+              <%= image_tag("fulltime.png", :alt => "full time") if course.full_time? %>
+  					  <%= image_tag("parttime.png", :alt => "part time") if course.part_time?  %>
+            </span>
+          </li>
+        <% end %>
+    </div>
+  </section>
 <% end %>
