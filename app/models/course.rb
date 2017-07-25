@@ -8,4 +8,12 @@ class Course < ActiveRecord::Base
   scope :qualifications, -> { where(:qualification => true) }
   scope :nonqualifications, -> { where(:qualification => false) }
 
+  def spaces_left
+    return course_dates.sum(:spaces_left)
+  end
+
+  def spaces_left?
+    return spaces_left > 0
+  end
+
 end
