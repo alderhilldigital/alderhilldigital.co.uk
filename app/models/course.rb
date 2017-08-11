@@ -5,6 +5,7 @@ class Course < ActiveRecord::Base
   has_many :course_dates
   accepts_nested_attributes_for :course_dates
 
+  scope :active, -> { where(:disabled => false) }
   scope :qualifications, -> { where(:qualification => true) }
   scope :nonqualifications, -> { where(:qualification => false) }
 
