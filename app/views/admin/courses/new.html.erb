@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for @course, :url => admin_courses_path() do |f| %>
+  <%= simple_form_for @course, :url => admin_courses_path(), :html => { :multipart => true } do |f| %>
     <%= render :partial => 'form', :locals => {:f => f} %>
   <% end %>
 </div>

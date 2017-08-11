@@ -3,7 +3,7 @@
     <h4><%= link_to "Manage Dates", admin_course_course_dates_path(@course) %></h4>
   </div>
   <div class="col-md-10">
-    <%= simple_form_for @course, :url => admin_course_path(@course) do |f| %>
+    <%= simple_form_for @course, :url => admin_course_path(@course), :html => { :multipart => true } do |f| %>
       <%= render :partial => 'form', :locals => {:f => f} %>
     <% end %>
   </div>

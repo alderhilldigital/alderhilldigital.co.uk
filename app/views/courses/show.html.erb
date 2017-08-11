@@ -9,6 +9,13 @@
   <div class="row">
     <div class="col-sm-8">
       <h2><%= @course.name %></h2>
+      <% if @course.image %>
+        <p>
+          <%= image_tag @course.image.url(:medium) %>
+          <br />
+          <br />
+        </p>
+      <% end %>
       <% if @course.description and !@course.description.blank? %>
         <p>
           <%= @course.description.html_safe %>
