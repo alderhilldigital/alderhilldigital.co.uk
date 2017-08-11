@@ -49,7 +49,7 @@ end
 task :env do
   command %{
     echo "-----> Loading environment"
-    #{File.read("/webapps/alderhilldigital.co.uk/env_vars")}
+    #{File.read("/webapps/alderhill/env_vars")}
   }
 end
 
