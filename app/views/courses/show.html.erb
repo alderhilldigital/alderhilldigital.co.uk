@@ -28,11 +28,24 @@
         </p>
       <% end %>
       <% if @course.course_dates.active.any? and @course.pay_by_card? %>
+        <br />
         <p>
           <% @course.course_dates.active.each do |course_date| %>
             <table class="booking-table">
               <tr>
+                <th>Date and Time</th>
+                <th>Information</th>
+                <th></th>
+              </tr>
+              <tr>
                 <td><%= course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P ") %></td>
+                <td>
+                  <% if course_date.description and !course_date.description.blank? %>
+                    <%= course_date.description %>
+                  <% else %>
+                    No additional information
+                  <% end %>
+                </td>
                 <td>
                   <%= link_to course_course_date_path(@course,course_date) do %>
                     <button id="customButton" class="stripe-button-copy">

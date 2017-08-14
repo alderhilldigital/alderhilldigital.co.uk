@@ -15,8 +15,14 @@
       <p>
         <h3><%= @course.name %> on <%= @course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P") %></h3>
         <br />
-        <br />
       </p>
+      <% if @course_date.description and !@course_date.description.blank? %>
+        <p>
+          <%= @course_date.description %>
+          <br />
+          <br />
+        </p>
+      <% end %>
       <% if @course.pay_by_card? and @course_date.spaces_left? and @course.cost and @course.cost > 0 %>
         <%= form_tag charge_course_course_date_path(@course,@course_date), :id => 'pay_form', :style => "text-align:left; margin-left:100px;" do %>
           <label for="quantity" style="width:100px;">Quantity</label>

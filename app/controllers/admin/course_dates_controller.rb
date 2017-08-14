@@ -38,7 +38,7 @@ class Admin::CourseDatesController < AdminController
     course_date_params["begins_at(3i)"].to_i,
     course_date_params["begins_at(4i)"].to_i,
     course_date_params["begins_at(5i)"].to_i
-    if @course_date.update_attributes(:course_id => @course.id, :begins_at => begins_at, :duration => course_date_params[:duration], :spaces => course_date_params[:spaces])
+    if @course_date.update_attributes(course_date_params.merge(:course_id => @course.id, :begins_at => begins_at))
       redirect_to admin_course_course_dates_path(@course)
     else
       render :action => 'edit'
@@ -69,7 +69,7 @@ class Admin::CourseDatesController < AdminController
   private
 
   def course_date_params
-    params.require(:course_date).permit(:course_id, :begins_at, :duration, :spaces)
+    params.require(:course_date).permit(:course_id, :begins_at, :duration, :spaces, :description)
   end
 
 end
