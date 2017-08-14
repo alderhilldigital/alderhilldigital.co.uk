@@ -27,6 +27,24 @@
           £<%= number_with_precision(@course.cost, :precision => 2) %>
         </p>
       <% end %>
+      <% if @course.course_dates.active.any? and @course.pay_by_card? %>
+        <p>
+          <% @course.course_dates.active.each do |course_date| %>
+            <table class="booking-table">
+              <tr>
+                <td><%= course_date.begins_at.try(:strftime, "%A %e %b %Y %l:%M%P ") %></td>
+                <td>
+                  <%= link_to course_course_date_path(@course,course_date) do %>
+                    <button id="customButton" class="stripe-button-copy">
+                      <span style="display: block; min-height: 30px;">Book Now</span>
+                    </button>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          <% end %>
+        <p>
+      <% end %>
       <% if @course.application_process and !@course.application_process.blank? %>
         <h2>Application</h2>
         <p><%= @course.application_process.html_safe %></p>
