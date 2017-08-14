@@ -14,12 +14,14 @@
           <th>Duration</th>
           <th>Spaces</th>
           <th></th>
+          <th></th>
         </tr>
         <% @course_dates.each do |course_date| %>
           <tr>
             <td><%= course_date.begins_at.try(:strftime, "%d %b %Y %l:%M%P") %></td>
             <td><%= course_date.duration %> Minutes</td>
             <td>(<%=course_date.spaces_left %>/<%= course_date.spaces %>)</td>
+            <td><%= link_to "edit", edit_admin_course_course_date_path(course_date.course,course_date) %> </td>
             <td>
               <% if course_date.disabled? %>
                 <%= link_to "enable", enable_admin_course_course_date_path(course_date.course,course_date) %>

@@ -21,6 +21,26 @@ class Admin::CourseDatesController < AdminController
     if CourseDate.create(:course_id => @course.id, :begins_at => begins_at, :duration => course_date_params[:duration], :spaces => course_date_params[:spaces])
       redirect_to admin_course_course_dates_path(@course)
     else
+      render :action => 'new'
+    end
+  end
+
+  def edit
+    @course = Course.friendly.find(params[:course_id])
+    @course_date = CourseDate.find(params[:id])
+  end
+
+  def update
+    @course_date = CourseDate.find(params[:id])
+    @course = @course_date.course
+    begins_at = DateTime.new course_date_params["begins_at(1i)"].to_i,
+    course_date_params["begins_at(2i)"].to_i,
+    course_date_params["begins_at(3i)"].to_i,
+    course_date_params["begins_at(4i)"].to_i,
+    course_date_params["begins_at(5i)"].to_i
+    if CourseDate.update_attributes(:course_id => @course.id, :begins_at => begins_at, :duration => course_date_params[:duration], :spaces => course_date_params[:spaces])
+      redirect_to admin_course_course_dates_path(@course)
+    else
       render :action => 'edit'
     end
   end
