@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
 
   def index
     @qualifications = Course.active.qualifications
-    @courses = Course.active.nonqualifications
+    @courses = Course.active.nonqualifications.order("full_time DESC  NULLS LAST, part_time DESC  NULLS LAST")
   end
 
   def show
