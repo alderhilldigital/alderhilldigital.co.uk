@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   def index
-    @qualifications = Course.active.qualifications
+    @qualifications = Course.active.qualifications.order("full_time DESC  NULLS LAST, part_time DESC  NULLS LAST")
     @courses = Course.active.nonqualifications.order("full_time DESC  NULLS LAST, part_time DESC  NULLS LAST")
   end
 
