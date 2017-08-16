@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post 'administration' => 'admin/courses#index'
   get 'administration/courses' => 'admin/courses#index', :as => :admin_courses
 
+  get 'terms-and-conditions' => 'home#terms_and_conditions'
+
   get "/minecraft" => redirect("/courses/minecraft")
 
   resources :courses do
