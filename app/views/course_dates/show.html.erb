@@ -101,7 +101,7 @@
     if((<%= @undiscounted_emails.to_json.html_safe %>.indexOf(document.getElementById('discount').value)) >= 0){
       amount -= 500*quantity;
     }*/
-    console.log(amount);
+    //console.log(amount);
     handler.open({
       name: 'Alderhill Digital',
       description: '<%= @course.name %> <%= @course_date.begins_at.try(:strftime, "(%d/%m/%Y)")%>',
