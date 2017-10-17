@@ -1,6 +1,7 @@
 class CourseDatesController < ApplicationController
   def show
     @course = Course.friendly.find(params[:course_id])
+    puts "COURSE COST #{@course.cost}"
     @course_date = CourseDate.find(params[:id])
     @undiscounted_emails = Booking.joins(:course_date).where(["course_dates.course_id = ?", @course.id]).pluck(:email).uniq.compact - @course_date.bookings.pluck(:email).uniq.compact
   end
