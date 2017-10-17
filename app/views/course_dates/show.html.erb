@@ -97,10 +97,10 @@
       alert("Invalid quantity. Your quantity has been reset to 1.");
       var amount = <%= @course.cost * 100 %>;
     }
-
+    /*
     if((<%= @undiscounted_emails.to_json.html_safe %>.indexOf(document.getElementById('discount').value)) >= 0){
       amount -= 500*quantity;
-    }
+    }*/
     console.log(amount);
     handler.open({
       name: 'Alderhill Digital',
