@@ -10,7 +10,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'alderhilldigital.co.uk'
-set :domain, 'ec2-34-249-65-184.eu-west-1.compute.amazonaws.com'
+set :domain, 'ec2-34-243-7-222.eu-west-1.compute.amazonaws.com'
 set :deploy_to, '/var/app/alderhilldigital.co.uk'
 set :repository, 'https://github.com/alderhilldigital/alderhilldigital.co.uk.git'
 set :branch, 'master'
