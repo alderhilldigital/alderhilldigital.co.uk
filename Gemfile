@@ -35,7 +35,7 @@ gem 'stripe'
 
 gem 'exception_notification'
 
-gem "paperclip", "~> 5.1.0"
+gem "paperclip", "~> 5.2.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
